@@ -32,7 +32,9 @@ sudo iptables -D  FORWARD -j REJECT --reject-with icmp-host-prohibited
 # Instalar portainer (https://documentation.portainer.io/v2.0/deploy/ceinstallk8s/) LOADBALANCER
 kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer-lb.yaml
 
-# Descargar repositorio
-cd /home/{USER}/
-mkdir github
-git clone https://github.com/Miavega/tesis-devops/
+# Crear namespaces
+kubectl create namespace devops
+
+# Instalar Jenkins
+cd /home/{USER}/Miavega/tesis-devops/jenkins
+sh jenkins.sh
